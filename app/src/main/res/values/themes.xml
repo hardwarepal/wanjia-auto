@@ -1,0 +1,15 @@
+<resources>
+    <style name="Theme.WanjiaAuto" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:statusBarColor">#FF6900</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- 闹钟入口 Activity：完全透明，用户无感知 -->
+    <style name="Theme.WanjiaAuto.Transparent" parent="Theme.WanjiaAuto">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
