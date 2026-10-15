@@ -72,5 +72,5 @@ object TimeParser {
         return null
     }
 
-    private fun MatchResult.gv(i: Int) = groupValues[i].toIntOrNull()
+    private fun MatchResult.gv(i: Int): Int = groupValues[i].toIntOrNull() ?: 0
 }
