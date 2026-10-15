@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="玩家视界助手"
+            android:textColor="#1F2328"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="10dp"
+            android:text="适配小米 HyperOS 2 (Android 15) / HyperOS 3 (Android 16)"
+            android:textColor="#8A8F99"
+            android:textSize="12sp" />
+
+        <!-- ============ 1. 无障碍服务 ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <TextView
+                style="@style/CardTitle"
+                android:text="① 无障碍服务（核心权限）" />
+
+            <TextView
+                android:id="@+id/tvServiceStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="状态：检测中…"
+                android:textColor="#D4380D"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/btnOpenAccessibility"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="打开无障碍设置，开启本服务" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="HyperOS 路径：设置 → 更多设置 → 无障碍 → 已下载的应用 → 玩家视界自动任务"
+                android:textColor="#8A8F99"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- ============ 2. 每日定时 ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <TextView
+                style="@style/CardTitle"
+                android:text="② 每日定时" />
+
+            <Switch
+                android:id="@+id/switchSchedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="启用每日定时任务"
+                android:textColor="#1F2328" />
+
+            <TimePicker
+                android:id="@+id/timePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:timePickerMode="spinner" />
+        </LinearLayout>
+
+        <!-- ============ 3. 任务配置 ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <TextView
+                style="@style/CardTitle"
+                android:text="③ 任务配置" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="「玩家视界」是小米钱包内的活动模块，默认打开 com.mipay.wallet；若为独立版本请按实际包名填写。"
+                android:textColor="#8A8F99"
+                android:textSize="11sp" />
+
+            <EditText
+                android:id="@+id/etPackage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="目标应用包名"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:text="com.mipay.wallet"
+                android:textColor="#1F2328"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/etEntry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="入口按钮文字（逗号分隔，任一匹配即点击）"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:text="做任务,领时长"
+                android:textColor="#1F2328"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/etComplete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="「完成任务」按钮文字"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:text="完成任务"
+                android:textColor="#1F2328"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/etLottery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="「开奖」按钮文字"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:text="开奖"
+                android:textColor="#1F2328"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etExtraWait"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="额外等待(秒)"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:text="5"
+                    android:textColor="#1F2328"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/etMaxWatch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:hint="OCR监控上限(秒)"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:text="240"
+                    android:textColor="#1F2328"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etPin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="锁屏 PIN（留空=仅上滑解锁；仅保存在本机）"
+                android:importantForAutofill="no"
+                android:inputType="numberPassword"
+                android:textColor="#1F2328"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- ============ 4. 操作 ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <TextView
+                style="@style/CardTitle"
+                android:text="④ 操作" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="保存配置" />
+
+            <Button
+                android:id="@+id/btnRunNow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="立即手动执行一次（测试用）"
+                android:textColor="#FF6900" />
+
+            <Button
+                android:id="@+id/btnKeepAlive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="启动保活前台服务（防被杀）" />
+        </LinearLayout>
+
+        <!-- ============ 5. 日志 ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <TextView
+                style="@style/CardTitle"
+                android:text="⑤ 运行日志" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/tvLog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:textColor="#1F2328"
+                    android:textIsSelectable="true"
+                    android:textSize="11sp" />
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
