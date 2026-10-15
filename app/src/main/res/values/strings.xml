@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">玩家视界助手</string>
+    <string name="accessibility_service_label">玩家视界自动任务</string>
+    <string name="accessibility_service_summary">定时自动完成玩家视界每日任务并领取时长</string>
+    <string name="accessibility_service_description">用于定时亮屏解锁、自动点击「做任务 领时长」「完成任务」「开奖」按钮，并通过屏幕截图 OCR 识别任务倒计时。全部操作仅在本机执行，数据不上传。</string>
+</resources>
