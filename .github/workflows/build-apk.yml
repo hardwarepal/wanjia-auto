@@ -23,8 +23,16 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Setup Android SDK (cmdline-tools + ANDROID_HOME)
-        uses: android-actions/setup-android@v3
+      # 手动安装 Android cmdline-tools（替代已弃用的 android-actions/setup-android@v3）
+      - name: Setup Android SDK (manual cmdline-tools)
+        run: |
+          export ANDROID_HOME=$HOME/android-sdk
+          mkdir -p "$ANDROID_HOME/cmdline-tools"
+          curl -fsSL https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -o /tmp/cmdtools.zip
+          unzip -q /tmp/cmdtools.zip -d "$ANDROID_HOME/cmdline-tools"
+          mv "$ANDROID_HOME/cmdline-tools/cmdline-tools" "$ANDROID_HOME/cmdline-tools/latest"
+          echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> "$GITHUB_PATH"
+          echo "ANDROID_HOME=$ANDROID_HOME" >> "$GITHUB_ENV"
 
       - name: Accept SDK licenses & install platform/build-tools
         run: |
@@ -48,8 +56,10 @@ jobs:
           echo "$HOME/gradle/gradle-8.9/bin" >> "$GITHUB_PATH"
 
       - name: Build debug APK
-        # 不使用 gradlew（本机未提交 wrapper），直接用已安装的 gradle 8.9 构建
-        run: gradle assembleDebug --no-daemon
+        # 不使用 gradlew（仓库未提交 wrapper），直接用已安装的 gradle 8.9 构建
+        run: |
+          echo "sdk.dir=$ANDROID_HOME" > local.properties
+          gradle assembleDebug --no-daemon
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
